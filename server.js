@@ -111,8 +111,7 @@ io.on('connection',function(sock){
                     
                 }
 }else{
-     Accuracy=client.key/5;
-     sock.emit('score',{'true':client.trues,'false':client.falses,'Accuracy':Accuracy});
+     sock.emit('score',{'true':client.trues,'false':client.falses,'Accuracy':'none'});
 }  
            
          //get value from client for validate
@@ -136,9 +135,8 @@ sock.on('timer start',function(){
     }
 });
 
-sock.on('done',function() {
-     Accuracy=client.key/5;   //get Accuracy
-    sock.emit('score',{'true':client.trues,'false':client.falses,'Accuracy':Accuracy});
+sock.on('done',function() { //get Accuracy
+    sock.emit('score',{'true':client.trues,'false':client.falses,'Accuracy':'none'});
 });
 
 
