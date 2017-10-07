@@ -98,9 +98,14 @@ select#select{
 /*-------------------------words ----------------*/
 
 .addwords{
-	
+	width: 80%;
 }
-
+#restwords{
+	width: 20%;
+}
+#textarea{
+	width: 80%;
+}
 #all{
 	padding: 10px;
 	width: 90%;
