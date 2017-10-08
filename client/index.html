@@ -185,7 +185,12 @@ $("body").on("click","#res",function(){
 socket.on('words',function(words){
 	$(container).html("");
 	for(var i=0;i<words.length;i++){
-		$(container).append("<span class='span'>"+words[i]+"</span>");
+		var pattern = /[\u0600-\u06FF\u0750-\u077F]/;
+		if(pattern.test(words[i])==true){
+			$(container).append("<span class='span pull-right'>"+words[i]+"</span>");
+		}else{
+			$(container).append("<span class='span'>"+words[i]+"</span>");
+	    }
 	}
 	
 });
@@ -206,7 +211,7 @@ input.addEventListener("keyup",function(event){
 
 	
 	
-	if(x == 32||x==229){
+	if(x == 32){
 		if(input.value.trim() != ""){
 			word_match++;
 		   socket.emit('countenue',{"value":input.value,"item":typing});

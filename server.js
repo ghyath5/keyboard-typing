@@ -82,7 +82,7 @@ io.on('connection',function(sock){
     
     sock.on('countenue',function(value){
         
-               client.key+=scors;
+                client.key+=scors;
                 if( value.value.trim() == client.words[value.item].trim()){
                   
                     sock.emit("result",{'res':1,'items':value.item,'leng':client.words.length});
