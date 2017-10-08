@@ -116,7 +116,7 @@
 	<form id="form">
 		<input type="text" id="input" class="enter" autocomplete="off" spellcheck="false">
 		<button id="res" class="sos btn btn-primary" title="Restart">RE(F5)</button>	    	
-    	<span class="time"><span id="timer">60</span></span>	
+    	<span class="time"><span id="timer">1:00</span></span>	
 	</form>
 	
  </div>
@@ -127,13 +127,13 @@
 
 	<p class="text read green text-center">WPM:(<span class="score"></span>)</p>
 	<hr />
-	<p class="text read">Correct words:<span class="score green"></span></p>
+	<p class="text read">Correct words:<span class="score green"></span> <span class="chare"></span></p>
 	<hr />
 	<p class="text read">Wrong words:<span class="score red"></span></p>
 </div>
 
 	
-<!--------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------->
 <script>
 var socket = io();
 	// JavaScript Document
@@ -147,7 +147,8 @@ var input	  = document.getElementById('input'),
     timer	  = document.getElementById('timer'),
     words     = document.getElementsByClassName('span'),
     score_list= document.getElementById('score'),
-	score     = document.getElementsByClassName('score');
+	score     = document.getElementsByClassName('score'),
+	chare     = document.getElementsByClassName('chare');
 	
 var word_match = 0;
 var typing    =  0;
@@ -205,7 +206,7 @@ input.addEventListener("keyup",function(event){
 
 	
 	
-	if(x == 32){
+	if(x == 32||x==229){
 		if(input.value.trim() != ""){
 			word_match++;
 		   socket.emit('countenue',{"value":input.value,"item":typing});
@@ -271,9 +272,11 @@ socket.on('start now',function(val) {
 socket.on('score',function(sc){
 	timer_start = true;
 	$("#words").hide();
+	chare[0].innerHTML = sc.ch;
 	score[0].innerHTML = Math.round(sc.Accuracy);
 	score[1].innerHTML = sc.true;
 	score[2].innerHTML = sc.false;
+
 	$(score_list).slideDown(200);
 	input.setAttribute('disabled','disabled');
 	input.value = "";

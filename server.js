@@ -82,7 +82,7 @@ io.on('connection',function(sock){
     
     sock.on('countenue',function(value){
         
-          client.key+=scors;
+               client.key+=scors;
                 if( value.value.trim() == client.words[value.item].trim()){
                   
                     sock.emit("result",{'res':1,'items':value.item,'leng':client.words.length});
@@ -111,7 +111,8 @@ io.on('connection',function(sock){
                     
                 }
 }else{
-     sock.emit('score',{'true':client.trues,'false':client.falses,'Accuracy':'none'});
+     Accuracy=(client.key/5)/((59-client.timer)/60);
+     sock.emit('score',{'true':client.trues,'false':client.falses,'Accuracy':Accuracy,'ch':client.key});
 }  
            
          //get value from client for validate
@@ -123,20 +124,24 @@ io.on('connection',function(sock){
 
 /*timer start*/
 sock.on('rest timer',function(){
-  client.timer = 59; 
+   client.timer = 59; 
 });
 sock.on('timer start',function(){
     if(client.timer >=0){
         sock.emit('start now',client.timer);
         client.timer--;
     }else{
-         Accuracy=client.key/5;  //get Accuracy
-        sock.emit('score',{'true':client.trues,'false':client.falses,'Accuracy':Accuracy});
+        Accuracy=(client.key/5)/((59-client.timer)/60);  //get Accuracy
+        sock.emit('score',{'true':client.trues,'false':client.falses,'Accuracy':Accuracy,'ch':client.key});
     }
+
 });
 
 sock.on('done',function() { //get Accuracy
-    sock.emit('score',{'true':client.trues,'false':client.falses,'Accuracy':'none'});
+     Accuracy=(client.key/5)/((59-client.timer)/60);   //get Accuracy
+    sock.emit('score',{'true':client.trues,'false':client.falses,'Accuracy':Accuracy,'ch':client.key});
+  
+
 });
 
 
