@@ -2,108 +2,111 @@
 
 <html>
 <head>
-	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-3505887163497455",
-    enable_page_level_ads: true
-  });
-</script>
+	
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nogat</title>
 <link rel="shortcut icon" href="img/images.jpg">
 <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
 <link rel="stylesheet" href="css/stylef.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 </head>
 
 <body id="body">
 
-<nav id="navg">
-	
-	<ul>
-		<li><a class="item" id="cont" href="#">Home</a></li>
-		<li><a class="item" id="cont" href="#">Contact Us</a></li>
-		<li><a class="item" id="cont" href="#">About me</a></li>
-		<li class="item pull-right" id='online'></li>
-	</ul>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><div id="dlogo"><span id="logo">Nog</span>at</div></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#" id="addyour">Add your words</a></li>
+      <li>
+      	<select id="select">
+	     <option value="url(img/a1.jpg)">background-1</option>
+	     <option value="url(img/a.gif)">background-2</option>
+	     <option value="url(img/d.gif)">background-3</option>
+	     <option value="url(img/e.gif)">background-4</option>
+	     <option value="url(img/j.gif)">background-5</option>
+	     <option value="url(img/y.gif)">background-6</option>
+	     <option value="url(img/o.gif)">background-7</option>
+	     <option value="url(img/p.gif)">background-8</option>
+	     <option value="url(img/q.gif)">background-9</option>
+	     <option value="url(img/s.gif)">background-10</option>
+	     <option value="url(img/t.gif)">background-11</option>
+	     <option value="url(img/u.gif)">background-12</option>
+	     <option value="url(img/v.gif)">background-13</option>
+	     <option value="url(img/y.gif)">background-14</option>
+	     <option value="url(img/1.gif)">background-15</option>
+	     <option value="url(img/2.gif)">background-16</option>
+	     <option value="url(img/3.gif)">background-17</option>
+	     <option value="url(img/4.gif)">background-18</option>
+	     <option value="url(img/5.gif)">background-19</option>
+	     <option value="url(img/6.gif)">background-20</option>
+	     <option value="url(img/7.gif)">background-21</option>
+	     <option value="url(img/8.gif)">background-22</option>
+	     <option value="url(img/9.gif)">background-23</option>
+	     <option value="url(img/10.gif)">background-24</option>
+	     <option value="url(img/11.gif)">background-25</option>
+	     <option value="url(img/12.gif)">background-26</option>
+	     <option value="url(img/13.gif)">background-27</option>
+	     <option value="url(img/14.gif)">background-28</option>
+	     <option value="url(img/15.gif)">background-29</option>
+	     <option value="url(img/16.gif)">background-30</option>
+	     <option value="url(img/17.gif)">background-31</option>
+	     <option value="url(img/18.gif)">background-32</option>
+	     <option value="blue">blue</option>
+	     <option value="white">white</option>
+	     <option value="black">black</option>
+	     <option value="yellow">yellow</option>
+	     <option value="green">green</option>
+	     <option value="aqua">aqua</option>
+	     <option value="azure">azure</option>
+	     <option value="blueviolet">blueviolet</option>
+	     <option value="brown">brown</option>
+	     <option value="burlywood">burlywood</option>
+	     <option value="cadetblue">cadetblue</option>
+	     <option value="cornflowerblue">cornflowerblue</option>
+	     <option value="deeppink">deeppink</option>
+	     <option value="dimgrey">dimgrey</option>
+	     <option value="khaki">khaki</option>
+  	  </select>
+	</li>
+    </ul>
+    
+  </div>
 
-	<div id="dlogo"><span id="logo">Nog</span>at</div>
-	<select id="select">
-	   <option value="url(img/a1.jpg)">background-1</option>
-	   <option value="url(img/a.gif)">background-2</option>
-	   <option value="url(img/d.gif)">background-3</option>
-	   <option value="url(img/e.gif)">background-4</option>
-	   <option value="url(img/j.gif)">background-5</option>
-	   <option value="url(img/y.gif)">background-6</option>
-	   <option value="url(img/o.gif)">background-7</option>
-	   <option value="url(img/p.gif)">background-8</option>
-	   <option value="url(img/q.gif)">background-9</option>
-	   <option value="url(img/s.gif)">background-10</option>
-	   <option value="url(img/t.gif)">background-11</option>
-	   <option value="url(img/u.gif)">background-12</option>
-	   <option value="url(img/v.gif)">background-13</option>
-	   <option value="url(img/y.gif)">background-14</option>
-	   <option value="url(img/1.gif)">background-15</option>
-	   <option value="url(img/2.gif)">background-16</option>
-	   <option value="url(img/3.gif)">background-17</option>
-	   <option value="url(img/4.gif)">background-18</option>
-	   <option value="url(img/5.gif)">background-19</option>
-	   <option value="url(img/6.gif)">background-20</option>
-	   <option value="url(img/7.gif)">background-21</option>
-	   <option value="url(img/8.gif)">background-22</option>
-	   <option value="url(img/9.gif)">background-23</option>
-	   <option value="url(img/10.gif)">background-24</option>
-	   <option value="url(img/11.gif)">background-25</option>
-	   <option value="url(img/12.gif)">background-26</option>
-	   <option value="url(img/13.gif)">background-27</option>
-	   <option value="url(img/14.gif)">background-28</option>
-	   <option value="url(img/15.gif)">background-29</option>
-	   <option value="url(img/16.gif)">background-30</option>
-	   <option value="url(img/17.gif)">background-31</option>
-	   <option value="url(img/18.gif)">background-32</option>
-	   <option value="blue">blue</option>
-	   <option value="white">white</option>
-	   <option value="black">black</option>
-	   <option value="yellow">yellow</option>
-	   <option value="green">green</option>
-	   <option value="aqua">aqua</option>
-	   <option value="azure">azure</option>
-	   <option value="blueviolet">blueviolet</option>
-	   <option value="brown">brown</option>
-	   <option value="burlywood">burlywood</option>
-	   <option value="cadetblue">cadetblue</option>
-	   <option value="cornflowerblue">cornflowerblue</option>
-	   <option value="deeppink">deeppink</option>
-	   <option value="dimgrey">dimgrey</option>
-	   <option value="khaki">khaki</option>
-	</select>
-	
 </nav>
 
 <script>
 	var select = document.getElementById("select");
 	
 	select.onchange = function(){
-		
+		var color ={
+		'white':'black',
+		'black':'white',
+		'red'  :'white',
+		'blue' :'black',
+		'yellow':'black',
+		'aqua':'white',
+		'green':'white'
+	}
 		var backg = select.value;
-		if(backg !='black'){
-			select.style.background = backg;
-		}else{
-			select.style.background = "#fff";;
-		}
 		
 		
+		$("nav.navbar").css({"background":backg,"color":color[backg]});
 		document.body.style.background = backg;
+
 	}
 	
 </script>
 <!------------------- contact us ---->
 <div class="container addwords">
 	<textarea id="textarea" placeholder="add your words"></textarea>
-	<button id="restwords" class="btn btn-primary">REST</button>
+	<button id="restwords" class="btn-block btn btn-primary">REST</button>
 	
 </div>
 
@@ -116,31 +119,37 @@
 	<form id="form">
 		<input type="text" id="input" class="enter" autocomplete="off" spellcheck="false">
 		<button id="res" class="sos btn btn-primary" title="Restart">RE(F5)</button>	    	
-    	<span class="time"><span id="timer">1:00</span></span>	
+    	<span class="time"><span id="timer" style="font-size: 20px">1:00</span></span>	
 	</form>
 	
  </div>
 
 
 
-<div id="score">
+<div id="score" class="col-xs-12 col-sm-6">
 
 	<p class="text read green text-center">WPM:(<span class="score"></span>)</p>
 	<hr />
-	<p class="text read">Correct words:<span class="score green"></span> <span class="chare"></span></p>
+	<p class="text read">Correct words:<span class="score green"></span></p>
 	<hr />
 	<p class="text read">Wrong words:<span class="score red"></span></p>
+	<hr />
+	<p class="text read">Keystrokes: <span class="score"></span> <span class="chare"></span>|<span class="chare green"></span>|<span class="chare red"></span></p>
 </div>
 
-	
+
 <!---------------------------------------------------------------------------------------->
 <script>
 var socket = io();
 	// JavaScript Document
 socket.on('ref',function(user){
     $("#online").html(user+" users online");
-})
+});
 
+$("#addyour").on('click',function(){
+	$(".addwords").toggle(100);
+	$("#textarea").focus();
+});
 
 var input	  = document.getElementById('input'),
 	container = document.getElementById('words'),
@@ -151,7 +160,8 @@ var input	  = document.getElementById('input'),
 	chare     = document.getElementsByClassName('chare');
 	
 var word_match = 0;
-var typing    =  0;
+
+var typing=0;
 var interval;
 //set your words from server 
 var timer_start = true;
@@ -159,6 +169,7 @@ var option  = 9;
 var move =option;
 
 socket.on('connect',function(){
+
 socket.emit('rest all');
 
 $("body").on("click","#res",function(){
@@ -171,7 +182,7 @@ $("body").on("click","#res",function(){
 	input.focus();
 	input.value="";
 	
-	timer.textContent =60;
+	timer.textContent ="1:00";
 	clearInterval(interval)//clear interval
 	move =option;//for moveing
 	timer_start = true;
@@ -219,7 +230,12 @@ input.addEventListener("keyup",function(event){
 		}
 	     input.value = "";
 	}else{
-		 socket.emit('typing',{"value":input.value,"item":typing});
+		if(x == 8){
+			socket.emit('typing',{"value":input.value,"item":typing,'del':true});
+		}else{
+			socket.emit('typing',{"value":input.value,"item":typing});
+		}
+		
 	}
 	
 	
@@ -270,14 +286,17 @@ function start_timer(){
 /*--time down start now--*/
 
 socket.on('start now',function(val) {
-    timer.textContent = val;
+    timer.textContent = "0:"+val;
 });
 	
 
 socket.on('score',function(sc){
 	timer_start = true;
 	$("#words").hide();
-	chare[0].innerHTML = sc.ch;
+	chare[0].innerHTML = sc.f;
+	chare[1].innerHTML = sc.ch;
+	chare[2].innerHTML = sc.f-sc.ch;
+	
 	score[0].innerHTML = Math.round(sc.Accuracy);
 	score[1].innerHTML = sc.true;
 	score[2].innerHTML = sc.false;
@@ -296,6 +315,7 @@ $("#textarea").on('keydown',function(eve){
 	var x = eve.which||eve.keyCode;
 	if(x ==13){
 		var w = $("#textarea").val();
+		$(".addwords").toggle(100);
 		socket.emit('custom words',w);
 		$("#res").click();
 	}
