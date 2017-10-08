@@ -211,7 +211,7 @@ input.addEventListener("keyup",function(event){
 
 	
 	
-	if(x == 32){
+	if(x == 32 || x==13){
 		if(input.value.trim() != ""){
 			word_match++;
 		   socket.emit('countenue',{"value":input.value,"item":typing});
