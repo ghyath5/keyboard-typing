@@ -116,7 +116,9 @@
 	<!--this is words place;-->
 	
 	</div>
+
 	<form id="form">
+		<div id="whiletype"></div>
 		<input type="text" id="input" class="enter" autocomplete="off" spellcheck="false">
 		<button id="res" class="sos btn btn-primary" title="Restart">RE(F5)</button>	    	
     	<span class="time"><span id="timer" style="font-size: 20px">1:00</span></span>	
@@ -169,7 +171,9 @@ var option  = 9;
 var move =option;
 
 socket.on('connect',function(){
-
+socket.on("res while typing",function(res){
+	$("#whiletype").html(Math.round(res));
+});
 socket.emit('rest all');
 
 $("body").on("click","#res",function(){

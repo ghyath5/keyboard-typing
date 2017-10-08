@@ -84,6 +84,7 @@ io.on('connection',function(sock){
         sock.emit('words',client.words);//send words to client
     });
     sock.on('countenue',function(value){
+                  Accuracy=(client.key/5)/((59-client.timer)/60);
                  client.keyf+=keydown+1;
                           
                 if( value.value.trim() == client.words[value.item].trim()){
@@ -95,7 +96,8 @@ io.on('connection',function(sock){
                     sock.emit("result",{'res':4,'items':value.item,'leng':client.words.length});
                     client.falses++;
                 }
-        
+                sock.emit('res while typing',Accuracy);
+         
     });
     
     sock.on('typing',(value)=>{ //get value char from client for validate
@@ -133,14 +135,14 @@ sock.on('timer start',function(){
         sock.emit('start now',client.timer);
         client.timer--;
     }else{
-        Accuracy=(client.key/5)/((59-client.timer)/60);  //get Accuracy
+          Accuracy=(client.key/5)/((59-client.timer)/60);//get Accuracy
         sock.emit('score',{'true':client.trues,'false':client.falses,'Accuracy':Accuracy,'ch':client.key,'f':client.keyf});
     }
 
 });
 
 sock.on('done',function() { //get Accuracy
-     Accuracy=(client.key/5)/((59-client.timer)/60);   //get Accuracy
+      Accuracy=(client.key/5)/((59-client.timer)/60);//get Accuracy
     sock.emit('score',{'true':client.trues,'false':client.falses,'Accuracy':Accuracy,'ch':client.key,'f':client.keyf});
   
 

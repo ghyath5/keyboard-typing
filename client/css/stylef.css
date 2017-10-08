@@ -135,7 +135,13 @@ form #input{
 	padding:20px;
 	font-size: 29px;
 }
-
+#whiletype{
+	background: white;
+	text-align: center;
+	font-size: 20px;
+	color: green;
+	padding: 15px;
+}
 .sos{
 	float:left;
 	width:50%;
