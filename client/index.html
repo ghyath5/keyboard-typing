@@ -167,12 +167,28 @@ var typing=0;
 var interval;
 //set your words from server 
 var timer_start = true;
-var option  = 9;
+var option  = 3;
 var move =option;
 
 socket.on('connect',function(){
 socket.on("res while typing",function(res){
-	$("#whiletype").html(Math.round(res));
+	var resull = Math.floor(Math.round(res));
+	if(resull>=40){
+		$("#whiletype").html("<span class='green'>"+resull+"</span>");
+	    $(words[typing-1]).append("<span class='green result_while'>"+resull+"</span>");
+	}else if(resull<=25){
+		$("#whiletype").html("<span class='red'>"+resull+"</span>");
+	    $(words[typing-1]).append("<span class='red result_while'>"+resull+"</span>");
+	}else{
+		$("#whiletype").html("<span>"+resull+"</span>");
+	    $(words[typing-1]).append("<span class='result_while'>"+resull+"</span>");
+	}
+	
+		
+	
+		
+	
+	
 });
 socket.emit('rest all');
 
