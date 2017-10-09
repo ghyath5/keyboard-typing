@@ -21,14 +21,6 @@
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=998375896971443";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
 
 </head>
 
@@ -40,8 +32,8 @@
       <a class="navbar-brand" href="#"><div id="dlogo"><span id="logo">Nog</span>at</div></a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#" id="addyour">Add your words</a></li>
+      <li class="active"><a>Home</a></li>
+      <li><a id="addyour">Add your words</a></li>
       <li>
       	<select id="select">
 	     <option value="url(img/a1.jpg)">background-1</option>
@@ -156,9 +148,10 @@
 	<hr />
 	<p class="text read">Keystrokes: <span class="score"></span> <span class="chare"></span>|<span class="chare green"></span>|<span class="chare red"></span></p>
 
-<div class="fb-share-button" data-href="https://test-typing.herokuapp.com/" data-layout="button" data-size="large" data-mobile-iframe="true">
-	<a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftest-typing.herokuapp.com%2F&amp;src=sdkpreparse">Share your result on facebook</a>
-</div>
+
+	<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://test-typing.herokuapp.com">
+	Share your result on facebook</a>
+
 	
 </div>
 
