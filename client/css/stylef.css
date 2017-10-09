@@ -188,6 +188,12 @@ p:first-child {
 
 }
 
+#online{
+	border:1px solid #000;
+	padding: 14px;
+	box-shadow: 0 0 10px white;
+}
+
 .read{
 	background-color: #ccc ;
 }
