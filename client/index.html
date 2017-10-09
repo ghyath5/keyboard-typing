@@ -153,6 +153,7 @@ socket.on('ref',function(user){
     $("#online").html(user+" users online");
 });
 
+
 $("#addyour").on('click',function(){
 	$(".addwords").toggle(100);
 	$("#textarea").focus();
@@ -175,25 +176,30 @@ var timer_start = true;
 var option  = 3;
 var move =option;
 
+
+
 socket.on('connect',function(){
 socket.on("res while typing",function(res){
 	var resull = Math.floor(Math.round(res));
 	if(resull>=40){
 		$("#whiletype").html("<span class='green'>"+resull+"</span>");
-	    $(words[typing-1]).append("<span class='green result_while'>"+resull+"</span>");
 	}else if(resull<=25){
 		$("#whiletype").html("<span class='red'>"+resull+"</span>");
-	    $(words[typing-1]).append("<span class='red result_while'>"+resull+"</span>");
 	}else{
 		$("#whiletype").html("<span>"+resull+"</span>");
-	    $(words[typing-1]).append("<span class='result_while'>"+resull+"</span>");
 	}
 	
+});
+socket.on("res while space",function(res){
+	var resull = Math.floor(Math.round(res));
+	if(resull>=40){
+	    $(words[typing-1]).append("<span class='green result_while'>"+resull+"</span>");
+	}else if(resull<=25){
+	    $(words[typing-1]).append("<span class='red result_while'>"+resull+"</span>");
+	}else{
+	  $(words[typing-1]).append("<span class='result_while'>"+resull+"</span>");
+	}
 		
-	
-		
-	
-	
 });
 socket.emit('rest all');
 
@@ -363,9 +369,10 @@ document.addEventListener('keydown',function(e){
 		e.preventDefault();
 	}
 	
-})
+});
 
-	
+
+
 </script>
 </body>
 </html>

@@ -2,6 +2,8 @@ var express = require("express");
 var app     = express();
 var http    = require("http").Server(app);
 var io      = require("socket.io")(http);
+var inter   = require('dns');
+
 var port    = process.env.PORT || 3000;
 
 app.use(express.static(__dirname+'/client'));
@@ -39,6 +41,7 @@ function shuffle(array) {
 var clients = {};
 
 io.on('connection',function(sock){
+
     var Accuracy;
     var scors;
     var keydown;
@@ -83,6 +86,7 @@ io.on('connection',function(sock){
         client.words = shuffle(client.words);
         sock.emit('words',client.words);//send words to client
     });
+
     sock.on('countenue',function(value){
       
                   
@@ -97,12 +101,13 @@ io.on('connection',function(sock){
                     sock.emit("result",{'res':4,'items':value.item,'leng':client.words.length});
                     client.falses++;
                 }
-                Accuracy=(client.key/5)/((59-client.timer)/60);
-                sock.emit('res while typing',Accuracy);
+               Accuracy=(client.key/5)/((59-client.timer)/60);
+               sock.emit('res while space',Accuracy);
          
     });
     
     sock.on('typing',(value)=>{ //get value char from client for validate
+      
          var arlength = client.words.length;
  if(arlength>value.item){
             var len_v = value.value.split('').length; 
@@ -117,12 +122,12 @@ io.on('connection',function(sock){
                   }
               
 }else{
-     Accuracy=(client.key/5)/((59-client.timer)/60);
+
      sock.emit('score',{'true':client.trues,'false':client.falses,'Accuracy':Accuracy,'ch':client.key,'f':client.keyf});
 }  
            
-         //get value from client for validate
-    })
+         
+})
    
 
 
@@ -136,15 +141,17 @@ sock.on('timer start',function(){
     if(client.timer >=0){
         sock.emit('start now',client.timer);
         client.timer--;
+         Accuracy=(client.key/5)/((59-client.timer)/60);
+        sock.emit('res while typing',Accuracy);
     }else{
-          Accuracy=(client.key/5)/((59-client.timer)/60);//get Accuracy
+         
         sock.emit('score',{'true':client.trues,'false':client.falses,'Accuracy':Accuracy,'ch':client.key,'f':client.keyf});
     }
 
 });
 
 sock.on('done',function() { //get Accuracy
-      Accuracy=(client.key/5)/((59-client.timer)/60);//get Accuracy
+    
     sock.emit('score',{'true':client.trues,'false':client.falses,'Accuracy':Accuracy,'ch':client.key,'f':client.keyf});
   
 
