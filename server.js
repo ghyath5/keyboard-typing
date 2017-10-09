@@ -85,7 +85,7 @@ io.on('connection',function(sock){
     });
     sock.on('countenue',function(value){
       
-                  Accuracy=(client.key/5)/((59-client.timer)/60);
+                  
                  client.keyf+=keydown+1;
                           
                 if( value.value.trim() == client.words[value.item]){
@@ -97,6 +97,7 @@ io.on('connection',function(sock){
                     sock.emit("result",{'res':4,'items':value.item,'leng':client.words.length});
                     client.falses++;
                 }
+                Accuracy=(client.key/5)/((59-client.timer)/60);
                 sock.emit('res while typing',Accuracy);
          
     });
