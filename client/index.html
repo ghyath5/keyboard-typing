@@ -7,13 +7,6 @@
 <meta name="description" content="Nogat - test your typing speed on keyboard">
 <meta name="keywords" content="test,typing,key,typing quick,faster,speed,fast,تعلم الطباعة,الطباعة بسرعة,كتابة,لوحة المفاتيح,كيبورد">
 <meta name="author" content="Ghyath">
-
-
-<meta id="metatitle" property="og:title" content="" />
-<meta property="og:type" content="website" />
-<meta id="url_meta" property="og:url" content="" />
-<meta property="og:image" content="https://test-typing.herokuapp.com/img/images.jpg" />
-
 <title>Nogat</title>
 <link rel="shortcut icon" href="img/images.jpg">
 <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
@@ -149,10 +142,6 @@
 	<p class="text read">Keystrokes: <span class="score"></span> <span class="chare"></span>|<span class="chare green"></span>|<span class="chare red"></span></p>
 
 
-	<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://test-typing.herokuapp.com">
-	Share your result on facebook</a>
-
-	
 </div>
 
 
@@ -328,8 +317,6 @@ socket.on('start now',function(val) {
 	
 
 socket.on('score',function(sc){
-	$("#metatitle").attr("content", "I can type "+sc.ch+" wpm. you can test your self now");
-	$("#url_meta").attr("content",window.location);
 	$("#words").hide();
 	chare[0].innerHTML = sc.f;
 	chare[1].innerHTML = sc.ch;
