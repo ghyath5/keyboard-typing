@@ -84,10 +84,11 @@ io.on('connection',function(sock){
         sock.emit('words',client.words);//send words to client
     });
     sock.on('countenue',function(value){
+      
                   Accuracy=(client.key/5)/((59-client.timer)/60);
                  client.keyf+=keydown+1;
                           
-                if( value.value.trim() == client.words[value.item].trim()){
+                if( value.value.trim() == client.words[value.item]){
                     client.key+=scors;
                     sock.emit("result",{'res':1,'items':value.item,'leng':client.words.length});
                     client.trues++;
