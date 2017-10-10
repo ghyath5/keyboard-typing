@@ -156,7 +156,9 @@ socket.on("result",function(res){
 	}
 })
  
-   
+function roundToTwo(num) {    
+    return +(Math.round(num + "e+2")  + "e-2");
+}
 
 /*------------time down (timer)---------*/
 
@@ -181,7 +183,7 @@ socket.on('score',function(sc){
 	score[0].innerHTML = Math.round(sc.Accuracy);
 	score[1].innerHTML = sc.true;
 	score[2].innerHTML = sc.false;
-
+	score[4].innerHTML = roundToTwo(sc.ch/sc.f*100)+"%";
 	$(score_list).slideDown(200);
 	input.setAttribute('disabled','disabled');
 	input.value = "";
