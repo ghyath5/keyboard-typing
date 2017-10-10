@@ -27,9 +27,24 @@ var timer_start = true;
 var option  = 3;
 var move =option;
 
-
+$("body").on("click","#res",function(){
+	$("#words").show();
+	socket.emit('rest all');
+	socket.emit('rest timer');
+	word_match=0;
+	typing    =0;
+	input.removeAttribute('disabled');
+	input.focus();
+	input.value="";
+	timer.textContent ="1:00";
+	clearInterval(interval);//clear interval
+	move =option;//for moveing
+	timer_start = true;
+	return false;
+});
 
 socket.on('connect',function(){
+$("#res").click();
 socket.on("res while typing",function(res){
 	var resull = Math.floor(Math.round(res));
 	$("#whiletype").html("<span>"+resull+"</span>");
@@ -53,23 +68,7 @@ socket.on("res while space",function(res){
 	}
 		
 });
-socket.emit('rest all');
 
-$("body").on("click","#res",function(){
-	$("#words").show();
-	socket.emit('rest all');
-	socket.emit('rest timer');
-	word_match=0;
-	typing    =0;
-	input.removeAttribute('disabled');
-	input.focus();
-	input.value="";
-	timer.textContent ="1:00";
-	clearInterval(interval);//clear interval
-	move =option;//for moveing
-	timer_start = true;
-	return false;
-});
 	
 	socket.emit('rest timer');
 	input.focus();	
