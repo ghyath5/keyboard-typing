@@ -137,20 +137,17 @@ form #input{
 	font-size: 29px;
 }
 .progress{
+	margin:0;
 	background: #5d5d57;
 }
-.progress-bar{
-}
+
 #whiletype{
 	text-align: center;
 	display: block;
-	font-size: 20px;
+	font-size: 25px;
 	margin:auto;
-	padding: 10px;
 	width: 50px;
 	color:white;
-	position: relative;
-	z-index: 99;
 }
 .sos{
 	float:left;
