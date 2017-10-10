@@ -87,7 +87,9 @@ select#select{
 	height: 50px;
 	color:black;
 }
-
+.sounds{
+	padding: 14px;
+}
 /*-------------------------words ----------------*/
 
 .addwords{

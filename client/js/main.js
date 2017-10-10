@@ -9,7 +9,8 @@ $("#addyour").on('click',function(){
 	$(".addwords").toggle(100);
 	$("#textarea").focus();
 });
-
+var correct = new Audio('sounds/correct.mp3');
+var wrong   = new Audio('sounds/Wrong.mp3');	
 var input	  = document.getElementById('input'),
 	container = document.getElementById('words'),
     timer	  = document.getElementById('timer'),
@@ -26,6 +27,14 @@ var interval;
 var timer_start = true;
 var option  = 3;
 var move =option;
+var sound =  true
+$("#sound").change(function() {
+    if(this.checked) {
+       sound=false;
+    }else{
+    	sound=true;
+    }
+});
 
 $("body").on("click","#res",function(){
 	$("#words").show();
@@ -144,6 +153,10 @@ socket.on("result",function(res){
 		socket.emit('done');
 	}
 	if(res.res == 1){
+		if(sound){
+			correct.currentTime = 0;
+			correct.play();
+	    }
 	   $(words[res.items]).addClass('green');
 	}if(res.res == 0){
 	   $(words[res.items]).addClass('bred');
@@ -151,6 +164,10 @@ socket.on("result",function(res){
 		$(words[res.items]).removeClass('green');
 		$(words[res.items]).removeClass('bred');
 	}if(res.res == 4){
+		if(sound){
+			wrong.currentTime =0; 
+			wrong.play();
+		}
 		$(words[res.items]).addClass('red');
 		$(words[res.items]).removeClass('bred');
 	}
