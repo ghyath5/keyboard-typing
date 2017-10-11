@@ -9,8 +9,10 @@ $("#addyour").on('click',function(){
 	$(".addwords").toggle(100);
 	$("#textarea").focus();
 });
-var correct = new Audio('sounds/correct.mp3');
-var wrong   = new Audio('sounds/Wrong.mp3');	
+var correct = new Audio('sounds/corrects.mp3');
+var wrong   = new Audio('sounds/Wrong.mp3');
+var writing   = new Audio('sounds/key.mp3');	
+var keywrong   = new Audio('sounds/falses.mp3');
 var input	  = document.getElementById('input'),
 	container = document.getElementById('words'),
     timer	  = document.getElementById('timer'),
@@ -101,7 +103,7 @@ socket.on('words',function(words){
 
 if(word_match<=words.length){
 input.addEventListener("keyup",function(event){
-
+	
 	var x = event.which || event.keyCode;
 	
 	if(timer_start && x!=116){
@@ -121,6 +123,7 @@ input.addEventListener("keyup",function(event){
 		}
 	     input.value = "";
 	}else{
+		
 		if(x == 8){
 			socket.emit('typing',{"value":input.value,"item":typing,'del':true});
 		}else{
@@ -148,27 +151,34 @@ input.addEventListener("keyup",function(event){
 });
 
 }
+input.addEventListener('keyup',function(e){
+//	keywrong.currentTime=0;
+	writing.currentTime = 0;
+})
 socket.on("result",function(res){
 	if(res.leng <=typing){
 		socket.emit('done');
 	}
 	if(res.res == 1){
-		if(sound){
-			correct.currentTime = 0;
-			correct.play();
-			correct.volume = 0.2;
-	    }
+
+		if(sound){correct.currentTime = 0;correct.play();correct.volume = 0.2;}
+
 	   $(words[res.items]).addClass('green');
 	}if(res.res == 0){
 	   $(words[res.items]).addClass('bred');
+
+	   if(sound)keywrong.play();
+	   
 	}if(res.res == 3){
+		 if(sound){writing.play();}
+
 		$(words[res.items]).removeClass('green');
 		$(words[res.items]).removeClass('bred');
+		
 	}if(res.res == 4){
-		if(sound){
-			wrong.currentTime =0; 
-			wrong.play();
-		}
+
+		if(sound){wrong.currentTime =0;wrong.play();}
+
 		$(words[res.items]).addClass('red');
 		$(words[res.items]).removeClass('bred');
 	}
