@@ -156,6 +156,7 @@ socket.on("result",function(res){
 		if(sound){
 			correct.currentTime = 0;
 			correct.play();
+			correct.volume = 0.2;
 	    }
 	   $(words[res.items]).addClass('green');
 	}if(res.res == 0){
