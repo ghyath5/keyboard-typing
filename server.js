@@ -19,15 +19,21 @@ res.rander('index.html');
 
 io.on('connection',function(sock){
 
-   
-    io.emit('ref',sock.conn.server.clientsCount);
+	 io.emit('ref',sock.conn.server.clientsCount);
   
 
+	 
 
-sock.on('disconnect',function(){
-    
-    io.emit('ref',sock.conn.server.clientsCount);
-});
+
+
+
+
+
+
+	sock.on('disconnect',function(){
+	    
+	    io.emit('ref',sock.conn.server.clientsCount);
+	});
 
 });
 
