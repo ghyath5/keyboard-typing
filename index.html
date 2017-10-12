@@ -8,11 +8,14 @@
 <meta name=author content=Ghyath>
 <title>Nogat</title>
 <link rel="shortcut icon" href=img/images.jpg>
+
 <link rel="stylesheet" href="css/font-awesome.css">
 <link rel="stylesheet" href=css/bootstrap.min.css type=text/css />
 <link rel="stylesheet" href=css/stylef.css>
 <script type=text/javascript src=js/jquery.min.js></script>
+
 <script type=text/javascript src=js/bootstrap.min.js></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src=/socket.io/socket.io.js></script>
 </head>
 <body id=body>
@@ -108,14 +111,22 @@
 
 	<div class="pull-right chat" id="chat">
 
-		<div id="minimize"><h2>Chat ! wait...</h2></div>
+		<div id="minimize"><h2>Chat ! G</h2></div>
 
-		<div>
+		<div class="content">
 			
+			<ul class="body_chat">
+				
+				
+				<pre>Created by Ghyath</pre>
+
+
+
+			</ul>
 
 			<div class="controle_mess">
 				<input type="text" id="message" class="input_message">
-				<button class="btn btn-primary"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+				<button class="btn btn-primary" id="send"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
 			</div>
 		</div>	
 	
@@ -124,6 +135,7 @@
 
 	<div class="fix_chat"></div>
 </div>
+
 
 
 <script src=js/main.js></script>

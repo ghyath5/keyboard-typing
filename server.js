@@ -22,7 +22,9 @@ io.on('connection',function(sock){
 	 io.emit('ref',sock.conn.server.clientsCount);
   
 
-	 
+	 sock.on("new message",function(info){
+	 	sock.broadcast.emit("message to client",{msg:info.msg,name:info.name});
+	 });
 
 
 
