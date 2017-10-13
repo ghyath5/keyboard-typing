@@ -26,7 +26,10 @@ io.on('connection',function(sock){
 	 	sock.broadcast.emit("message to client",{msg:info.msg,name:info.name});
 	 });
 
+	 sock.on("send image" ,function(data){
+	 	io.emit("revirce img",{img:data.j.imageData.toString('base64'),n:data.n,name:data.name});
 
+	 });
 
 
 

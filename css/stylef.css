@@ -275,7 +275,7 @@ p:first-child {
 /*-------------start with chat------------------*/
 .fix_chat{
 	display: block;
-	width: 300px;
+	width: 380px;
 	height: 50px;
 	position: fixed;
 	bottom: 0;
@@ -296,7 +296,7 @@ p:first-child {
 	bottom: 0;
 	background: #eee;
 	right: 0;
-	width: 300px;
+	width: 380px;
 	height: 400px;
 	padding: 0;
 	margin:0;
@@ -325,6 +325,17 @@ p:first-child {
 	height: 300px;
 	list-style: none;
 	overflow: auto;
+}
+
+pre.msg_item img{
+	float: right;
+	max-width:80%;
+	max-height: 80%;
+}
+pre.msg_items img{
+	float: left;
+	max-width:80%;
+	max-height: 80%;
 }
 .my{
 	float: left;
@@ -375,9 +386,13 @@ p:first-child {
 .input_message{
 	margin:0;
 	padding: 5px;
-	width: 80%;
+	width: 60%;
 	
 }
+#imageFile{
+	display: none;	
+}
+
 .fa-bell-o{
 	padding: 20px;
 	display: block;
