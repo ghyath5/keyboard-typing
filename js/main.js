@@ -242,18 +242,6 @@ input.addEventListener("keyup",function(event){
 		
 	}
 
-	if(x==17){
-
-	   if($("#sound").is(':checked')) {
-             sound=true;
-             $("#sound").prop("checked", false); 
-	    }else{
-	    	sound=false;
-	    	  $("#sound").prop("checked", true); 
-	    }
-		
-	}
-	
 	if(x == 32 || x==13){
 		if(input.value.trim() != ""){
 			word_match++;
@@ -387,6 +375,18 @@ document.addEventListener('keydown',function(e){
 	}if(xa == 13){
 		e.preventDefault();
 	}
+	if(xa==17){
+
+	   if($("#sound").is(':checked')) {
+             sound=true;
+             $("#sound").prop("checked", false); 
+	    }else{
+	    	sound=false;
+	    	  $("#sound").prop("checked", true); 
+	    }
+		
+	}
+	
 	
 });
 

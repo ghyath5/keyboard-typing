@@ -83,7 +83,9 @@ $('#imageFile').on('change', function(e) {
          'imageData': evt.target.result
        }
     // send a custom socket message to server
+    console.log("loading...");
      socket.emit('send image', {j:jsonObject,n:socket.id,name:name});
+     console.log("done");
    };
 
    reader.readAsDataURL(file);
@@ -106,5 +108,5 @@ socket.on("revirce img",function(data){
        $(".body_chat").animate({scrollTop: $(".body_chat").prop('scrollHeight')}, 100);
        $('.fix_chat').html("<i class='fa fa-bell-o red' aria-hidden='true'></i>");
 
-})
+});
 
