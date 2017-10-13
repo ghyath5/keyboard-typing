@@ -27,8 +27,13 @@ io.on('connection',function(sock){
 	 });
 
 	 sock.on("send image" ,function(data){
-	 	io.emit("revirce img",{img:data.j.imageData.toString('base64'),n:data.n,name:data.name});
-
+	 	if(!data.video){
+	 		
+	 		io.emit("revirce img",{img:data.j.imageData.toString('base64'),n:data.n,name:data.name});
+	    }else{
+	    
+	    	io.emit("revirce img",{img:data.j.imageData.toString('base64'),n:data.n,name:data.name,'video':'video'});
+	    }
 	 });
 
 

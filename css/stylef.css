@@ -337,6 +337,17 @@ pre.msg_items img{
 	max-width:80%;
 	max-height: 80%;
 }
+pre.msg_item video{
+	float: right;
+	max-width:80%;
+	max-height: 80%;
+}
+pre.msg_items video{
+	float: left;
+	max-width:80%;
+	max-height: 80%;
+}
+
 .my{
 	float: left;
 	width: 100%;

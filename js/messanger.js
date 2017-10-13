@@ -15,7 +15,7 @@ function names(){
 	swal("What's your name:", {
 	  content: "input",
 	}).then((value) => {
-	  name = escapeHtml(value);
+	  name = escapeHtml(value.substr(0, 15));
 	});
 }
 $("#minimize").on("click",function(){
@@ -83,8 +83,15 @@ $('#imageFile').on('change', function(e) {
          'imageData': evt.target.result
        }
     // send a custom socket message to server
-    $("#files").html("<img width='20px' src='img/loading.gif'/>");
-   socket.emit('send image', {j:jsonObject,n:socket.id,name:name});
+   
+    if (file.type.match('image.*')) {
+    	 $("#files").html("<img width='20px' src='img/loading.gif'/>");
+    	 socket.emit('send image', {j:jsonObject,n:socket.id,name:name});
+	}else if(file.type.match('video.*')){
+		 $("#files").html("<img width='20px' src='img/loading.gif'/>");
+    	 socket.emit('send image', {j:jsonObject,n:socket.id,name:name,video:'video'});
+	}
+  
 
    };
 
@@ -93,10 +100,9 @@ $('#imageFile').on('change', function(e) {
 
 
 socket.on("revirce img",function(data){
-		
-	   var calsee = Math.floor(Math.random()*1022423434);
-       var img = document.createElement("img");
-       img.src = data.img;
+
+	 var calsee = Math.floor(Math.random()*1022423434);
+    
        if(data.n == socket.id){
        	$(".body_chat").append("<div class='my'><span class='name'>"+data.name+"</span><pre class='img"+calsee+" msg_item'></pre></div>");
        }else{
@@ -104,9 +110,25 @@ socket.on("revirce img",function(data){
        	$(".body_chat").append("<span class='names'>"+data.name+"</span><pre class='img"+calsee+" msg_items'></pre>");
        }
        $("#files").html('<i class="fa fa-camera" aria-hidden="true"></i>');
-       $(".img"+calsee).append(img);
+
+       if(!data.video){
+
+           var img = document.createElement("img");
+       	   img.src = data.img;
+          $(".img"+calsee).append(img);
+   		}else{
+   		 var img = document.createElement("video");
+   		 $(img).attr('controls','controls');
+   		 img.src = data.img;
+   		 
+          $(".img"+calsee).append(img);
+   		}
+
        $(".body_chat").animate({scrollTop: $(".body_chat").prop('scrollHeight')}, 100);
-       $('.fix_chat').html("<i class='fa fa-bell-o red' aria-hidden='true'></i>");
+      
+
+		 $('.fix_chat').html("<i class='fa fa-bell-o red' aria-hidden='true'></i>");
+	  
 
 });
 
