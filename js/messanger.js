@@ -84,8 +84,8 @@ $('#imageFile').on('change', function(e) {
        }
     // send a custom socket message to server
     console.log("loading...");
-     socket.emit('send image', {j:jsonObject,n:socket.id,name:name});
-     console.log("done");
+     socket.emit('send image', {j:jsonObject,n:socket.id,name:name}, console.log("Emitted"));
+     
    };
 
    reader.readAsDataURL(file);
