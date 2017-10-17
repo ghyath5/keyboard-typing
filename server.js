@@ -125,7 +125,15 @@ sock.on("walking",(idd)=>{
 });
 
 
-
+sock.on('disconnect',function(){
+	   
+	    for(var i=0;i<ply.p.length;i++){
+	    	if(ply.p[i].id == sock.id){
+	    		ply.p.splice(i,1);
+	    	}
+	    }
+	   
+});
 
 });
 
