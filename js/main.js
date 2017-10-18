@@ -139,7 +139,7 @@ var typing=0;
 var interval;
 //set your words from server 
 var timer_start = true;
-var option  = 29;
+var option  = 28;
 var move =option;
 var sound =  true;
 
