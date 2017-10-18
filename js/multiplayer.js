@@ -110,7 +110,7 @@ function res(data){
  
     }
     if(data.res == 2){
-        $("#input").val("");
+     
         type = data.type;
        
     }
@@ -147,7 +147,7 @@ function word(info){
 
 	
 	if(values.trim() == obj.wds[types]){
-	   
+	   $("#input").val("");
 		types++;
 		res({res:2,type:types});
 		
@@ -161,7 +161,7 @@ function word(info){
 
 
 socket.on("walk now",function(id){
-    $("#input").val("");
+    
     $("#s"+id.idd).html(id.score);
     $('#'+id.idd).css({"transform":"translateX("+id.walk+'px'+")"});
     
