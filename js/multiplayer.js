@@ -65,8 +65,19 @@ var type = 0;
 var typer = true;
 var wordsall=0;
 var keydown;
+
+function send(v){
+  
+}
 $("body").on("keyup","#input",function(event){
-	
+    
+    
+    typing({val:this.value,room:obj.name,type:type});
+    
+    
+});
+$("body").on("keydown","#input",function(event){
+    typing({val:this.value,room:obj.name,type:type});	
 	var x = event.which || event.keyCode;
 	
 	if(typer){
@@ -74,31 +85,20 @@ $("body").on("keyup","#input",function(event){
 	    typer=false;
 	}
 	
+
+	   if(x == 32 || x == 13){
+	      word({val:this.value,room:obj.name,type:type});
+	      event.preventDefault();
+	   }
 	
-	if(x == 32 || x == 13){
-	    if($("#input").val().trim()!=""){
-	         word({val:this.value,room:obj.name,type:type});
-	    }else{
-	        $("#input").val("");
-	    }
-	    
-	    
-    	if(obj.wds.length == type){
-	       done();
-    	}
-    	
-	}else{
-	    if(x == 8){
-		    typing({val:this.value,room:obj.name,type:type,'del':true});
-		}else{
-		    typing({val:this.value,room:obj.name,type:type});
-		}
-	         
-	    
-	}
+    if(obj.wds.length == type){
+	      done();
+    }
 	
+
 	
 });
+
 
 var allwords = document.getElementsByClassName("span");
 function res(data){
@@ -147,6 +147,7 @@ function word(info){
 
 	
 	if(values.trim() == obj.wds[types]){
+	   
 		types++;
 		res({res:2,type:types});
 		
@@ -160,7 +161,7 @@ function word(info){
 
 
 socket.on("walk now",function(id){
-    
+    $("#input").val("");
     $("#s"+id.idd).html(id.score);
     $('#'+id.idd).css({"transform":"translateX("+id.walk+'px'+")"});
     
@@ -172,5 +173,5 @@ function done(){
     clearInterval(intervl);
     typer=true;
     swal("Finish", "in "+time+" seconds");
-  
+    $("#tryagain").addClass("show-block")
 }
