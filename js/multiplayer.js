@@ -43,7 +43,7 @@ socket.on("start join",function(info){
    
     obj = info;
    $("#words_multi").load("words.html",function(){
-       
+        $("#input").focus();
        for(var o=0;o<info.wds.length;o++){
             $("#place_words").append("<span class='span edite_span'>"+info.wds[o]+"</span>");
        }
