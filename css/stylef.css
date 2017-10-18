@@ -443,17 +443,25 @@ pre.msg_items video{
 	background-color:white;
 	margin-top: 20px;
 }
-.typin_online{
 
-}
 .place_score{
 	height:300px;
 	background:white;
 	float: none;
 	margin:auto;
 }
-
+#tryagain{
+	display: none;	
+}
 .scores{
 	font-size: 15px;
 	font-weight: bold;
+}
+a.btn-block{
+
+	width:90%;
+	margin:auto;
+}
+.show-block{
+	display:block !important;
 }
