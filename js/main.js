@@ -24,6 +24,18 @@ function shuffle(array) {
   return array;
 }
 
+function escapeHtml(text) {
+  var map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+
+  return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+}
+
 var clients = {};
 
 
@@ -121,7 +133,7 @@ $("#addyour").on('click',function(){
 	$(".addwords").toggle(100);
 	$("#textarea").focus();
 });
-var correct = new Audio('sounds/corrects.mp3');
+var correct = new Audio('sounds/c11.mp3');
 var wrong   = new Audio('sounds/Wrong.mp3');
 var writing   = new Audio('sounds/key.mp3');	
 var keywrong   = new Audio('sounds/falses.mp3');
@@ -150,6 +162,8 @@ $("#sound").change(function() {
     	sound=true;
     }
 });
+
+
 
 $("body").on("click","#res",function(){
 	$("#words").show();
@@ -204,9 +218,9 @@ function wordss(words){
 	for(var i=0;i<words.length;i++){
 		var pattern = /[\u0600-\u06FF\u0750-\u077F]/;
 		if(pattern.test(words[i])==true){
-			$(container).append("<span class='span pull-right'>"+words[i]+"</span>");
+			$(container).append("<span class='span pull-right'>"+escapeHtml(words[i])+"</span>");
 		}else{
-			$(container).append("<span class='span'>"+words[i]+"</span>");
+			$(container).append("<span class='span'>"+escapeHtml(words[i])+"</span>");
 	    }
 	}
 	

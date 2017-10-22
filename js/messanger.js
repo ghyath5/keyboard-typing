@@ -112,10 +112,12 @@ socket.on("revirce img",function(data){
        $("#files").html('<i class="fa fa-camera" aria-hidden="true"></i>');
 
        if(!data.video){
-
-           var img = document.createElement("img");
-       	   img.src = data.img;
-          $(".img"+calsee).append(img);
+            var img = document.createElement("img");
+       	    img.src = data.img;
+            $(".img"+calsee).append(img);
+            $("body").on("click",".img"+calsee,function(){
+            	window.open(data.img)
+            });
    		}else{
    		 var img = document.createElement("video");
    		 $(img).attr('controls','controls');
