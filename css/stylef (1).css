@@ -1,0 +1,467 @@
+@charset "utf-8";
+/* CSS Document */
+*,html,body{
+	
+	padding: 0;
+	margin: 0;
+	direction: ltr;
+}
+div,ul,li,button,textarea,span,hr{
+	padding:0;
+	margin:0;
+}
+body {
+	font-size: 14px;
+	background:url(../img/a1.jpg);
+	-webkit-transition: 2.5s;
+	-moz-transition: 2.5s;
+	-o-transition: 2.5s;
+	transition: 2.5s;
+}
+.center{
+	
+	position: relative;
+	left:120px;
+	top: -30px;
+	
+}
+/*0----------------------------start style------------------------*/
+
+.dos{
+	visibility: hidden;
+}
+
+
+/*0----------------------------start nav------------------------*/
+
+nav{
+	color: white;
+	box-shadow: 0 0 25px white;
+}
+nav div ul li a{
+	color:inherit !important;
+}
+
+#dlogo{
+	float: right;
+	font-family: tahoma;
+	color: red;
+	font-weight: bolder;
+	font-size: 23px;
+	cursor: cell;
+	
+}
+#dlogo:hover{
+	-webkit-animation:1s move  infinite ;
+	-moz-animation:1s move  infinite ;
+	-o-animation:1s move  infinite ;
+	animation:1s move  infinite ;
+	
+}
+#dlogo #logo{
+	
+	font-family: tahoma;
+	color: yellow;
+	font-weight: bolder;
+	font-size: 23px;
+	
+}
+
+.item{
+	display: block;
+	cursor: pointer;
+	padding: 15px 20px;
+	color: white;
+	text-decoration:none;
+	font-weight: 200;
+	font-family: tahoma;
+}
+
+.item:hover{
+  	color:black;
+	background-color: antiquewhite;
+}
+
+select#select{
+	padding: 15px 20px;
+	height: 50px;
+	color:black;
+}
+.sounds{
+	padding: 14px;
+}
+/*-------------------------words ----------------*/
+
+.addwords{
+	width: 80%;
+	display: none;
+}
+#restwords{
+	width: 100%;
+	max-width: 100%;
+}
+#textarea{
+	width: 100%;
+	max-width: 100%;
+}
+#all{
+	padding: 10px;
+	width: 90%;
+	min-height: 300px;
+	margin:80px auto 10px auto;
+	opacity: .8;
+}
+#hon{
+
+	width:80%;
+	margin:0 auto;
+}
+#words{
+	width: 100%;
+	height: 180px;
+	background-color: #fff;
+	margin:10px auto 0 auto;
+	overflow: hidden;
+	border: 2px dashed #000;
+}
+form {
+	text-align: center;
+	margin: 10px auto;
+	background:gray;
+	overflow:hidden;
+}
+ #input{
+	background-color: #FFFFFF;
+	width:100%;
+	height: 20px;
+	padding:20px;
+
+	font-size: 29px;
+}
+.progress{
+	margin:0;
+	background: #5d5d57;
+}
+
+#whiletype{
+	text-align: center;
+	display: block;
+	font-size: 25px;
+	margin:auto;
+	width: 50px;
+	color:white;
+}
+.sos{
+	float:left;
+	width:50%;
+	padding:20px;
+	border-radius:0;
+}
+.time{
+	color:black;
+	padding:17px;
+	width:50%;
+	display:block;
+	float:right;
+	background:#3598db;
+}
+
+#score{
+	display:none;
+	padding: 0;
+	min-height:100px;
+	margin:20px auto;
+	background:white;
+	float: none;
+}
+#score h4::after {
+    content: "Resulte";
+    display: block;
+    text-align: center;
+    padding: 16px;
+    color: white;
+}
+#score h4{
+	margin:0;
+	background: #5d5d57;
+}
+#score p{
+	font-size:15px;
+	padding:10px;
+	margin:0 0 2px 0;
+}
+p:first-child {
+	margin:0;
+}
+.span{
+	display: inline-block;
+	font-size: 28px;
+	padding: 10px 20px;
+}
+.result_while{
+	position: absolute;
+	font-size: 10px;
+	color:blue;
+	margin-left: -30px;
+	margin-top: -10px;
+
+}
+.progress{
+	width: 100%;
+	height: 40px;
+}
+#online{
+	border:1px solid #000;
+	padding: 14px;
+	box-shadow: 0 0 10px white;
+}
+.fb-share-button{
+	float: none;
+	margin: 20px auto;
+}
+
+.read{
+	background-color: #ccc ;
+}
+.bred{
+	background:red !important;
+}
+.red{
+	color: red !important; 
+}
+.green{
+	color: green !important; 
+}
+.blue{
+	color: blue;
+}
+/*--------------------------------------*/
+
+@keyframes move{
+  
+ 20%
+  {
+   -moz-transform: scale( 1.1 );
+   -webkit-transform: scale( 1.1 );
+   -o-transform: scale( 1.1 );
+  transform: scale( 1.1 );
+  }
+40%
+  {
+   
+   -moz-transform: scale( 1 );
+    -webkit-transform: scale( 1 );
+    -o-transform: scale( 1 );
+	   transform: scale( 1 );
+  }
+	50%{
+		-o-transform: scale( 1.1 );
+		-webkit-transform: scale( 1.1 );
+		-moz-transform: scale( 1.1 );
+		transform: scale( 1.1 );
+	}
+	60%{
+		-o-transform: scale( 1 );
+		-webkit-transform: scale( 1 );
+		-moz-transform: scale( 1 );
+		transform: scale( 1 );
+	}
+}
+/*======multi -=========================================*/
+
+.box-test{
+	width: 100%;
+	min-height: 300px;
+	background:#eee;
+}
+
+.box-test h3{
+	font-size: 20px;
+	font-family: tahoma;
+	padding:10px;
+}
+
+div.cont{
+	float: none;
+	margin:100px auto;
+	border:1px solid #000;
+	position: relative;
+	min-height:400px; 
+}
+#search{
+	padding:10px;
+	margin-top: 40px;
+	font-family: cursive
+}
+
+/*-------------start with chat------------------*/
+.fix_chat{
+	display: block;
+	width: 380px;
+	height: 50px;
+	position: fixed;
+	bottom: 0;
+	right: 0;	
+	cursor: pointer;
+	background: #ccc;
+}
+
+.fix_chat::after{
+	content: 'Chat !';
+	font-size: 24px;
+	text-align: center;
+	display: block;
+}
+.chat{
+	display: none;
+	position: fixed;
+	bottom: 0;
+	background: #eee;
+	right: 0;
+	width: 380px;
+	height: 400px;
+	padding: 0;
+	margin:0;
+	border-right:3px solid #ccc;
+	border-left:3px solid #ccc;
+}
+
+.chat>div:first-of-type{
+
+	overflow: hidden;
+	width: 100%;
+	background: #ccc;
+	cursor: pointer;
+}
+.chat div h2{
+
+	width: 100%;
+	float: right;
+	font-size: 24px;
+	text-align: center;
+	padding:10px;
+	margin:0;
+}
+.body_chat{
+	width: 100%;
+	height: 300px;
+	list-style: none;
+	overflow: auto;
+}
+
+pre.msg_item img{
+	float: right;
+	max-width:80%;
+	max-height: 80%;
+}
+pre.msg_items img{
+	float: left;
+	max-width:80%;
+	max-height: 80%;
+}
+pre.msg_item video{
+	float: right;
+	max-width:80%;
+	max-height: 80%;
+}
+pre.msg_items video{
+	float: left;
+	max-width:80%;
+	max-height: 80%;
+}
+
+.my{
+	float: left;
+	width: 100%;
+}
+.msg_item,.msg_items{
+	float: left;
+	display: block;
+	white-space: pre-wrap; word-break: keep-all;
+	max-width: 100%;
+    padding: 5px;
+	color:black;
+	display: block;
+	font-weight: bold;
+	font-size: 15px;
+}
+.name,.names{
+	padding: 5px;
+	display: block;
+	font-weight: bolder; 
+	color:#50b701;
+}
+.names{
+	float: right;
+	color:black;
+	display: block;
+	clear: both;
+}
+.msg_items{
+	float: right;
+	display: block;
+	clear: both;
+	max-width: 100%;
+}
+
+.controle_mess{
+	padding: 10px;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	position: absolute;
+}
+.controle_mess button{
+	width: 18%;
+	border-radius: 0;
+	margin:0;
+}
+.input_message{
+	margin:0;
+	padding: 5px;
+	width: 60%;
+	
+}
+#imageFile{
+	display: none;	
+}
+
+.fa-bell-o{
+	padding: 20px;
+	display: block;
+	text-align: center;
+	margin:auto;
+}
+.edite_span{
+	font-size:18px;
+	padding:5px;
+	font-weight: bold;
+	
+	
+}
+.place_words{
+	background-color:white;
+	margin-top: 20px;
+}
+
+.place_score{
+	height:300px;
+	background:white;
+	float: none;
+	margin:auto;
+}
+#tryagain{
+	display: none;	
+}
+.scores{
+	font-size: 15px;
+	font-weight: bold;
+}
+a.btn-block{
+
+	width:90%;
+	margin:auto;
+}
+.show-block{
+	display:block !important;
+}
